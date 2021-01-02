@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: 224157ec-nip-io-tls
+spec:
+  secretName: 224157ec-nip-io
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: 224157ec.nip.io
+  dnsNames:
+    - 224157ec.nip.io
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - 224157ec.nip.io
